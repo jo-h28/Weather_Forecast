@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/Kuliah/Java/Weather_Forecast/bin/commons-io-2.6/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="D:/Kuliah/Java/Weather_Forecast/bin/JSON/java-json.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
