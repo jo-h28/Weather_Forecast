@@ -24,5 +24,6 @@ TBA
 
 ## Updates
 - 14 June 2018 : added structural explanation to README
+- 27 June 2018 : added external libraries and sample program, implemented CityWeather and CityForecast class, created City and Weather class.
 
 *All sections are subject to change
