@@ -21,7 +21,6 @@ public class CityForecast {
     private double[] seaLevelPress;
     private double[] groundLevelPress;
     private String[] dayTime;
-    private int population;
     public CityForecast(String cityName, String country) {
         forecast = new Weather[40];
         seaLevelPress = new double[40];
@@ -39,7 +38,6 @@ public class CityForecast {
             cityInfo.setId(json.getJSONObject("city").get("id").toString());
             cityInfo.setLatitude(json.getJSONObject("city").getJSONObject("coord").getDouble("lat"));
             cityInfo.setLongitude(json.getJSONObject("city").getJSONObject("coord").getDouble("lon"));
-            population = json.getJSONObject("city").getInt("population");
             for(int i = 0; i < list.length(); ++i) {
                 forecast[i] = new Weather();
                 forecast[i].setMain(list.getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("main"));
@@ -74,6 +72,21 @@ public class CityForecast {
     public String toString() {
         return "CityForecast [cityInfo=" + cityInfo + ", forecast=" + Arrays.toString(forecast) + ", seaLevelPress="
                 + Arrays.toString(seaLevelPress) + ", groundLevelPress=" + Arrays.toString(groundLevelPress)
-                + ", dayTime=" + Arrays.toString(dayTime) + ", population=" + population + "]";
+                + ", dayTime=" + Arrays.toString(dayTime) + "]";
+    }
+    public City getCityInfo() {
+        return cityInfo;
+    }
+    public Weather[] getForecast() {
+        return forecast;
+    }
+    public double[] getSeaLevelPress() {
+        return seaLevelPress;
+    }
+    public double[] getGroundLevelPress() {
+        return groundLevelPress;
+    }
+    public String[] getDayTime() {
+        return dayTime;
     }
 }
