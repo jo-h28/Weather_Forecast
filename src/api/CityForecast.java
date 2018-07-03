@@ -42,6 +42,7 @@ public class CityForecast {
                 forecast[i] = new Weather();
                 forecast[i].setMain(list.getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("main"));
                 forecast[i].setDescription(list.getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("description"));
+                forecast[i].setIcon("http://openweathermap.org/img/w/" + list.getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("description") + ".png");
                 forecast[i].setTemperature(list.getJSONObject(i).getJSONObject("main").getDouble("temp"));
                 forecast[i].setMinTemp(list.getJSONObject(i).getJSONObject("main").getDouble("temp_min"));
                 forecast[i].setMaxTemp(list.getJSONObject(i).getJSONObject("main").getDouble("temp_max"));

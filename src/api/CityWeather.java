@@ -44,9 +44,12 @@ public class CityWeather {
            currentWeather.setHumidity(mainInfo.getInt("humidity"));
            currentWeather.setMinTemp(mainInfo.getDouble("temp_min"));
            currentWeather.setMaxTemp(mainInfo.getDouble("temp_max"));
+           currentWeather.setIcon("http://openweathermap.org/img/w/" + condition.getString("icon") + ".png");
            visibility = json.getInt("visibility");
            currentWeather.setWindSpeed(wind.getDouble("speed"));
-           currentWeather.setWindDegree(wind.getDouble("deg"));
+           if(wind.has("deg")) {
+               currentWeather.setWindDegree(wind.getDouble("deg"));
+           }
        } catch (UnsupportedEncodingException e) {
            e.printStackTrace();
        } catch (IOException e) {

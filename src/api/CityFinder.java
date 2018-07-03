@@ -1,10 +1,7 @@
 package api;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,11 +9,11 @@ import org.json.JSONObject;
 public class CityFinder {
     private ArrayList<CityWeather> weathers;
     private ArrayList<CityForecast> forecasts;
+    private String content;
     public CityFinder(String cityName) {
         weathers = new ArrayList<CityWeather>();
         forecasts = new ArrayList<CityForecast>();
         try {
-            String content = FileUtils.readFileToString(new File("city.list.json"), "utf-8");
             JSONArray jsonArray = new JSONArray(content);
             for(int i = 0; i < jsonArray.length(); ++i) {
                 JSONObject json = jsonArray.getJSONObject(i);
@@ -36,20 +33,27 @@ public class CityFinder {
                     }
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
     public static void main(String args[]) {
-        CityFinder finder = new CityFinder("Delhi");
+        @SuppressWarnings("unused")
+        CityFinder finder = null;
+        finder = new CityFinder("Delhi");
+        System.out.println(finder);
     }
     public ArrayList<CityWeather> getWeathers() {
         return weathers;
     }
     public ArrayList<CityForecast> getForecasts() {
         return forecasts;
+    }
+    public String getContent() {
+        return content;
+    }
+    public void setContent(String content) {
+        this.content = content;
     }
 }

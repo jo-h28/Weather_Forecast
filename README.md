@@ -11,7 +11,7 @@ In this software, the developer uses an API called `Open Weather Map`. This API 
 - GUI : Classes containing methods to show data based on user's input, displaying city's weather information, graphic icons, search list and such.
 
 ## Features
-- [ ] Search for a city/list of cities
+- [x] Search for a city/list of cities
 - [ ] Show the search result
 - [ ] Show city's weather forecast
 - [ ] Show more detailed informations of the forecast, such as temperature, wind speed, clouds.
@@ -25,5 +25,6 @@ TBA
 ## Updates
 - 14 June 2018 : added structural explanation to README
 - 27 June 2018 : added external libraries and sample program, implemented CityWeather and CityForecast class, created City and Weather class.
+- 4 July 2018 : added GUI implementations(app cover and search page), GUI classes for app panels.
 
 *All sections are subject to change

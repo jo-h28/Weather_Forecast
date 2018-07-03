@@ -10,6 +10,13 @@ public class Weather {
     private double maxTemp;
     private double windSpeed;
     private double windDegree;
+    private String icon;
+    public String getIcon() {
+        return icon;
+    }
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
     public Weather() {}
     public String getDescription() {
         return description;
