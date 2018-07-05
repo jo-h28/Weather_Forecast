@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 
 import org.apache.commons.io.IOUtils;
 import org.json.JSONException;
@@ -26,30 +27,46 @@ public class CityWeather {
        try {
            URL url = new URL(urlString.toString());
            urlConnection = (HttpURLConnection) url.openConnection();
-           String stringFromStream = IOUtils.toString(new BufferedInputStream(urlConnection.getInputStream()), "UTF-8");
-           JSONObject json = new JSONObject(stringFromStream);
-           JSONObject coord = json.getJSONObject("coord");
-           JSONObject mainInfo = json.getJSONObject("main");
-           JSONObject condition = json.getJSONArray("weather").getJSONObject(0);
-           JSONObject wind = json.getJSONObject("wind");
-           cityInfo = new City(json.getString("name").toString(), json.getJSONObject("sys").getString("country"));
-           currentWeather = new Weather();
-           cityInfo.setId(json.get("id").toString());
-           cityInfo.setLatitude(coord.getDouble("lat"));
-           cityInfo.setLongitude(coord.getDouble("lon"));
-           currentWeather.setMain(condition.getString("main"));
-           currentWeather.setDescription(condition.getString("description"));
-           currentWeather.setTemperature(mainInfo.getDouble("temp"));
-           currentWeather.setPressure(mainInfo.getInt("pressure"));
-           currentWeather.setHumidity(mainInfo.getInt("humidity"));
-           currentWeather.setMinTemp(mainInfo.getDouble("temp_min"));
-           currentWeather.setMaxTemp(mainInfo.getDouble("temp_max"));
-           currentWeather.setIcon("http://openweathermap.org/img/w/" + condition.getString("icon") + ".png");
-           visibility = json.getInt("visibility");
-           currentWeather.setWindSpeed(wind.getDouble("speed"));
-           if(wind.has("deg")) {
-               currentWeather.setWindDegree(wind.getDouble("deg"));
+           urlConnection.connect();
+           if(urlConnection.getResponseCode() == 200) {
+               String stringFromStream = IOUtils.toString(new BufferedInputStream(urlConnection.getInputStream()), "UTF-8");
+               JSONObject json = new JSONObject(stringFromStream);
+               JSONObject coord = json.getJSONObject("coord");
+               JSONObject mainInfo = json.getJSONObject("main");
+               JSONObject condition = json.getJSONArray("weather").getJSONObject(0);
+               JSONObject wind = json.getJSONObject("wind");
+               cityInfo = new City(json.getString("name").toString(), json.getJSONObject("sys").getString("country"));
+               currentWeather = new Weather();
+               cityInfo.setId(json.get("id").toString());
+               cityInfo.setLatitude(coord.getDouble("lat"));
+               cityInfo.setLongitude(coord.getDouble("lon"));
+               currentWeather.setMain(condition.getString("main"));
+               currentWeather.setDescription(condition.getString("description"));
+               currentWeather.setTemperature(mainInfo.getDouble("temp"));
+               currentWeather.setPressure(mainInfo.getInt("pressure"));
+               currentWeather.setHumidity(mainInfo.getInt("humidity"));
+               currentWeather.setMinTemp(mainInfo.getDouble("temp_min"));
+               currentWeather.setMaxTemp(mainInfo.getDouble("temp_max"));
+               currentWeather.setIcon("http://openweathermap.org/img/w/" + condition.getString("icon") + ".png");
+               if(json.has("visibility")) {
+                   visibility = json.getInt("visibility");
+               }
+               else {
+                   visibility = 10000;
+               }
+               currentWeather.setWindSpeed(wind.getDouble("speed"));
+               if(wind.has("deg")) {
+                   currentWeather.setWindDegree(wind.getDouble("deg"));
+               }
+               else {
+                   currentWeather.setWindDegree(0);
+               }
            }
+           else {
+               cityInfo = null;
+           }
+       } catch (SocketTimeoutException e) {
+           cityInfo = null;
        } catch (UnsupportedEncodingException e) {
            e.printStackTrace();
        } catch (IOException e) {

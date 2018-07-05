@@ -7,14 +7,15 @@ In computer programming, an application programming interface (API) is a set of 
 In this software, the developer uses an API called `Open Weather Map`. This API is used to access informations about cities' current weather data, and/or daily forecasts.
 
 ## Packages
-- API : Classes containing methods to request data from `Open Weather Map` and store them.
+- API : Classes containing methods to request data from `Open Weather Map`.
+- DATA : Classes containing data received from API.
 - GUI : Classes containing methods to show data based on user's input, displaying city's weather information, graphic icons, search list and such.
 
 ## Features
 - [x] Search for a city/list of cities
-- [ ] Show the search result
-- [ ] Show city's weather forecast
-- [ ] Show more detailed informations of the forecast, such as temperature, wind speed, clouds.
+- [x] Show the search result
+- [x] Show city's weather forecast
+- [x] Show more detailed informations of the forecast, such as temperature, wind speed, clouds.
 
 ## How to compile/run
 TBA
@@ -26,5 +27,6 @@ TBA
 - 14 June 2018 : added structural explanation to README
 - 27 June 2018 : added external libraries and sample program, implemented CityWeather and CityForecast class, created City and Weather class.
 - 4 July 2018 : added GUI implementations(app cover and search page), GUI classes for app panels.
+- 5 July 2018 : added unformatted search bar and raw search results.
 
 *All sections are subject to change

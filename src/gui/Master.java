@@ -24,7 +24,7 @@ public class Master extends JFrame implements ActionListener{
     private JPanel masterPanel;
     private JPanel cover;
     private SearchDisplay search;
-    private String cityList;
+    static String cityList;
     private JProgressBar progressBar;
     public Master(int width, int height) {
         addPanel();
@@ -34,7 +34,7 @@ public class Master extends JFrame implements ActionListener{
     
     public void start(int width, int height) {
         setSize(width, height);
-        setResizable(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
         setTitle("Weather_Forecast v.01");
@@ -44,7 +44,7 @@ public class Master extends JFrame implements ActionListener{
         requestFocus();
         Loader fileLoader = new Loader();
         fileLoader.start();
-        for(int i =0; i<= 100; i+=10){
+        for(int i = 0; i <= 100; i += randInt(0, 10)){
             final int progress = i;
             SwingUtilities.invokeLater(new Runnable() {
                public void run() {
@@ -52,7 +52,7 @@ public class Master extends JFrame implements ActionListener{
                }
             });
             try {
-               Thread.sleep(400);
+               Thread.sleep(randInt(200, 500));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -75,10 +75,10 @@ public class Master extends JFrame implements ActionListener{
         protected void paintComponent(Graphics g) {
             g.drawImage(backGround, 0, 0, getWidth(), getHeight(), this);
         }};
-        cover.setLayout(new FlowLayout());
-        cover.add(progressBar);
         search = new SearchDisplay();
         search.getSearchButton().addActionListener(this);
+        cover.setLayout(new FlowLayout());
+        cover.add(progressBar);
         masterPanel.setLayout(layout);
         masterPanel.add(search, "search");
         masterPanel.add(cover, "cover");
@@ -103,6 +103,13 @@ public class Master extends JFrame implements ActionListener{
     public static void main(String[] args) {
         @SuppressWarnings("unused")
         Master app = new Master(SCREENWIDTH, SCREENHEIGHT);
+    }
+    
+    public int randInt(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+        return (int) (Math.random() * ((max - min) + 1)) + min;
     }
     
     public String getCityList() {
