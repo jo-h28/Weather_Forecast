@@ -25,15 +25,15 @@ Run : Execute run.sh
 ## How to use
 1. Run the program
 2. Wait for it to complete loading files
-[cover](ss/cover.png)
+![cover](ss/cover.png)
 3. Search current weather/forecast of a city by entering the city's name in the given form
-[search](ss/search.png)
+![search](ss/search.png)
 4. Click the search button to show the result(s)*
-[search1](ss/search1.png)
+![search1](ss/search1.png)
 5. Wait for a few seconds for the program to fetch and display the result(s)*
-[search2](ss/search2.png)
+![search2](ss/search2.png)
 6. Click the resulting city's name to view its forecast descriptions**
-[search3](ss/search3.png)
+![search3](ss/search3.png)
 
 *The application will show cities which names contain input (as a substring) from the form
 **Forecasts displayed are within the next 3 days, every 6 hours
