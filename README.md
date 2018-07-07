@@ -20,6 +20,7 @@ In this software, the developer uses an API called `Open Weather Map`. This API 
 
 ## How to compile/run
 Compile : Execute make.sh
+
 Run : Execute run.sh
 
 ## How to use
