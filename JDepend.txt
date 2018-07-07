@@ -1,0 +1,124 @@
+
+--------------------------------------------------
+- Package: api
+--------------------------------------------------
+
+Stats:
+    Total Classes: 3
+    Concrete Classes: 3
+    Abstract Classes: 0
+
+    Ca: 1
+    Ce: 3
+
+    A: 0
+    I: 0.75
+    D: 0.25
+
+Abstract Classes:
+
+Concrete Classes:
+    api.CityFinder
+    api.CityForecast
+    api.CityWeather
+
+Depends Upon:
+    data
+    org.apache.commons.io
+    org.json
+
+Used By:
+    gui
+
+--------------------------------------------------
+- Package: data
+--------------------------------------------------
+
+Stats:
+    Total Classes: 2
+    Concrete Classes: 2
+    Abstract Classes: 0
+
+    Ca: 2
+    Ce: 0
+
+    A: 0
+    I: 0
+    D: 1
+
+Abstract Classes:
+
+Concrete Classes:
+    data.City
+    data.Weather
+
+Depends Upon:
+    Not dependent on any packages.
+
+Used By:
+    api
+    gui
+
+--------------------------------------------------
+- Package: gui
+--------------------------------------------------
+
+Stats:
+    Total Classes: 9
+    Concrete Classes: 9
+    Abstract Classes: 0
+
+    Ca: 0
+    Ce: 2
+
+    A: 0
+    I: 1
+    D: 0
+
+Abstract Classes:
+
+Concrete Classes:
+    gui.Master
+    gui.Master$1
+    gui.Master$2
+    gui.Master$Loader
+    gui.SearchDisplay
+    gui.SearchDisplay$1
+    gui.SearchDisplay$2
+    gui.SearchDisplay$3
+    gui.SearchDisplay$4
+
+Depends Upon:
+    api
+    data
+
+Used By:
+    Not used by any packages.
+
+--------------------------------------------------
+- Package: org.apache.commons.io
+--------------------------------------------------
+No stats available: package referenced, but not analyzed.
+
+--------------------------------------------------
+- Package: org.json
+--------------------------------------------------
+No stats available: package referenced, but not analyzed.
+
+
+--------------------------------------------------
+- Package Dependency Cycles:
+--------------------------------------------------
+
+
+--------------------------------------------------
+- Summary:
+--------------------------------------------------
+
+Name, Class Count, Abstract Class Count, Ca, Ce, A, I, D, V:
+
+api,3,0,1,3,0,0.75,0.25,1
+data,2,0,2,0,0,0,1,1
+gui,9,0,0,2,0,1,0,1
+org.apache.commons.io,0,0,1,0,0,0,1,1
+org.json,0,0,1,0,0,0,1,1
