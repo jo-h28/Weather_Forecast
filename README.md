@@ -24,7 +24,7 @@ Compile : Execute make.sh
 Run : Execute run.sh
 
 ## How to use
-1. Run the program
+1. Run the aaplication
 2. Wait for it to complete loading files
 ![cover](ss/cover.png)
 3. Search current weather/forecast of a city by entering the city's name in the given form
@@ -36,9 +36,9 @@ Run : Execute run.sh
 6. Click the resulting city's name to view its forecast descriptions**
 ![search3](ss/search3.png)
 
-*The application will show cities which names contain input (as a substring) from the form
+*The application shows cities' names which contain input string from the form.
 
-**Forecasts displayed are within the next 3 days, every 6 hours
+**Forecasts displayed are within the next 3 days, every 6 hours.
 
 ## Updates
 - 14 June 2018 : added structural explanation to README
