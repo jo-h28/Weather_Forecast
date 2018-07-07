@@ -37,6 +37,7 @@ Run : Execute run.sh
 ![search3](ss/search3.png)
 
 *The application will show cities which names contain input (as a substring) from the form
+
 **Forecasts displayed are within the next 3 days, every 6 hours
 
 ## Updates
